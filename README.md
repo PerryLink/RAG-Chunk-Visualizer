@@ -42,6 +42,9 @@ poetry install
 # Default chunk size (200) and overlap (50)
 rag-chunk-visualizer input.txt
 
+# Or run it as a module
+python -m rag_chunk_visualizer input.txt
+
 # Custom chunk size, overlap, and output file
 rag-chunk-visualizer -s 500 -o 100 -O result.html input.txt
 
@@ -59,13 +62,27 @@ rag-chunk-visualizer -v input.txt
 | `-v`, `--verbose` | off | Verbose output |
 | `--version` | — | Show version |
 
-Open the generated HTML file in a browser to inspect the chunk layout.
+Example:
+
+```bash
+echo "This is a test text. It contains multiple sentences used to verify the split. Overlap regions should be marked correctly. RAG systems split long text into chunks for better retrieval and generation." > test.txt
+rag-chunk-visualizer -s 30 -o 10 test.txt
+```
+
+Open the generated `output.html` in a browser to inspect the chunk layout.
+
+Built with Jinja2, Rich, and chardet; tests use pytest.
 
 ## Development
 
 ```bash
 poetry run pytest -v
 ```
+
+## Related
+
+- [dsh-library](https://github.com/PerryLink/dsh-library) — the DSH plugin this tool was ported into
+- [PerryLink](https://github.com/PerryLink) — the PerryLink DSH Plugin Family
 
 ## License
 

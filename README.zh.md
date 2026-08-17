@@ -42,6 +42,9 @@ poetry install
 # 使用默认 chunk 大小（200）与重叠（50）
 rag-chunk-visualizer input.txt
 
+# 或以模块方式运行
+python -m rag_chunk_visualizer input.txt
+
 # 自定义 chunk 大小、重叠与输出文件
 rag-chunk-visualizer -s 500 -o 100 -O result.html input.txt
 
@@ -59,13 +62,27 @@ rag-chunk-visualizer -v input.txt
 | `-v`, `--verbose` | 关 | 详细输出 |
 | `--version` | — | 显示版本 |
 
-在浏览器中打开生成的 HTML 文件即可查看切分布局。
+示例：
+
+```bash
+echo "这是一段测试文本。它包含多个句子，用于验证切分效果。重叠区域应该被正确标记。RAG系统需要将长文本切分成多个chunk，以便更好地进行检索和生成。" > test.txt
+rag-chunk-visualizer -s 30 -o 10 test.txt
+```
+
+在浏览器中打开生成的 `output.html` 即可查看切分布局。
+
+基于 Jinja2、Rich 与 chardet 构建；测试使用 pytest。
 
 ## 开发
 
 ```bash
 poetry run pytest -v
 ```
+
+## 相关项目
+
+- [dsh-library](https://github.com/PerryLink/dsh-library) —— 本工具已移植进的 DSH 插件
+- [PerryLink](https://github.com/PerryLink) —— PerryLink DSH 插件家族
 
 ## 许可证
 
