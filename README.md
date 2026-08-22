@@ -1,6 +1,7 @@
 <div align="center">
 
 # RAG-Chunk-Visualizer
+[![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/rag-chunk-visualizer)
 
 **A tool that renders RAG text chunking as an interactive HTML visualization with overlap highlighting.**
 
